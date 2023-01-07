@@ -10,3 +10,9 @@ sudo sh -c "echo '<role rolename=\"admin-gui\"/>' >> /etc/tomcat9/tomcat-users.x
 sudo sh -c "echo '<role rolename=\"manager-gui\"/>' >> /etc/tomcat9/tomcat-users.xml"
 
 sudo sh -c "echo '<user username=\"tomcat\" password=\"pass\" roles=\"admin-gui,manager-gui\"/>' >> /etc/tomcat9/tomcat-users.xml"
+# Restarting the tomcat
+sudo systemctl restart tomcat9
+# giving passwordless access
+sudo sh -c "echo 'jenkins ALL=(ALL) NOPASSWD: /var/lib/jenkins/workspace' >> /etc/sudoers"
+sudo sh -c "echo 'jenkins ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers"
+
